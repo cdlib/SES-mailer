@@ -36,3 +36,21 @@ Martin todo:
 Brian todo:
 - Create github repo with a tiny sinatra app
 - Work on S3 traversal and parsing
+
+DB schema:
+  - Services
+    - Name
+    - API Key
+    - email_regex
+  - Bounces
+    - email
+    - datetime
+    - kind
+    - service
+  - Emails
+    - recipient
+    - sender
+    - template
+    - service
+    - subject
+    - datetime
