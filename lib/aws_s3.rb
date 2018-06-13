@@ -1,5 +1,7 @@
 require 'aws-sdk-s3'
 
-def scan_for_bounces 
-  'It worked!'
+# This service should be callable on demand
+def scan_for_bounces(service)
+  "Scanning S3 for bounce notifications#{service.present? ? " for #{service}" : ''}"
 end
+

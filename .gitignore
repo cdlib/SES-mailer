@@ -13,6 +13,9 @@
 # Skip the rbenv file
 .ruby-version
 
+# Skip any local config file
+config.json
+
 # Used by dotenv library to load environment variables.
 # .env
 

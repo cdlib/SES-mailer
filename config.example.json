@@ -1,0 +1,7 @@
+{
+  "aws-region": "us-west-2",
+  "aws-key": "ABCD1234",
+  "aws-secret": "SECRET123",
+
+  "db-host": "my.datatbase.example.org"
+}

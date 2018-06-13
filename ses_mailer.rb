@@ -1,25 +1,29 @@
+require 'json'
 require 'sinatra'
 
+# Configuration
+# -----------------------------------
 configure do
-  # TODO: Add method to swap in credentials for DB and AWS when deployed
-  # ----------------------------------------
-
-  config = { 
-    aws: {
-      region: 'region-zone-nbr',
-      key: 'ABCD1234',
-      secret: 'SECRET123'
-    },
-    db: {
-      host: 'my-database.example.org'
-    }
-  }
+  enable :logging
 end
 
 configure :production do
   # Production specific config options
-  enable :logging
 end
 
-# Pull together all of the code
+begin
+  # Pull in the configuration params and assign them to the config hash
+  CONFIG = JSON.parse(File.read('config.json'))
+rescue JSON::ParserError
+  puts "Unable to read your config.json file. Please make sure it is valid JSON."
+end
+
+# Pull together all of the code from ./lib
 Dir.glob("lib/*.rb").each { |r| require_relative r }
+
+# Helpers
+# -----------------------------------
+def get_config(key)
+  # Returns local environment variable or config.json value if available
+  ENV[key].nil? ? CONFIG[key] : ENV[key]
+end
