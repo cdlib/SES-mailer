@@ -8,6 +8,7 @@ Pro:
   * one place to do credential rotation
   * doesn't interfere with client app's gem dependencies
   * can hit it from cattle machines
+  
 Con:
   * have to keep an eye on the server, maintain it
   * more code (for API wrapper)
@@ -17,6 +18,7 @@ Con:
 Pro:
   * simple
   * decentralized
+  
 Con:
   * lots of credential sets
 
